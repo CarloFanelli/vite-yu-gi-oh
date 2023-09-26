@@ -10,12 +10,9 @@ export const state = reactive({
         axios(this.base_url)
             .then(response => {
                 console.log(response.data);
-                console.log(response.data.data[0]);
-                for (let i = 0; i < response.data.data.length; i++) {
 
-                    console.log(response.data.data[i]);
-                    this.cards = response.data.data;
-                }
+                this.cards = response.data.data;
+
             })
     }
 })

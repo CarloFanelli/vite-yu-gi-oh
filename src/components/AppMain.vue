@@ -2,14 +2,13 @@
     <main class="py-4">
         <div class="container bg-white">
             <div class="row">
-                <div class="col-6 col-md-2" v-for="card in state.cards">
+                <div class="my_col" v-for="card in state.cards">
                     <div class="card">
                         <div class="card-header">
-                            <img class="w-100" src="https://upload.wikimedia.org/wikipedia/commons/2/21/Yu-Gi-Oh%21.png"
-                                alt="">
+                            <img class="w-100" :src='card.card_images[1]' alt="">
                         </div>
                         <div class="card-body">
-                            <h1>{{ card.name }}</h1>
+                            <h6>{{ card.name }}</h6>
                         </div>
                     </div>
                 </div>
@@ -38,5 +37,10 @@ export default {
 
 main {
     background: $yugioh__bg;
+}
+
+.my_col {
+    flex: 0 0 auto;
+    width: calc(100% / 5);
 }
 </style>
