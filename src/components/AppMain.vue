@@ -5,10 +5,13 @@
                 <div class="my_col" v-for="card in state.cards">
                     <div class="card">
                         <div class="card-header">
-                            <img class="w-100" :src='card.card_images[1]' alt="">
+                            <img class="w-100" :src='card.card_images.image_url_small' alt="">
                         </div>
                         <div class="card-body">
-                            <h6>{{ card.name }}</h6>
+                            <div class="card_data">
+                                <h6>{{ card.name }}</h6>
+                                <p>{{ card.archetype }}</p>
+                            </div>
                         </div>
                     </div>
                 </div>
