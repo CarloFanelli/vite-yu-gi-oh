@@ -1,7 +1,7 @@
 <template>
     <main class="py-4">
         <div class="container">
-            <select name="cards_selection" id="cards_selections" :v-model="state.selection">
+            <select name="cards_selection" id="cards_selections" @click="state.fetchData" :v-model="state.selection">
                 <option value="alien" selected>Alien</option>
                 <option value="Noble Knight">Noble Knigh</option>
             </select>
