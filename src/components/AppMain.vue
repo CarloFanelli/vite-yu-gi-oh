@@ -1,15 +1,5 @@
-<template>
-    <main class="py-4">
-        <SearchArch></SearchArch>
-        <CardList v-if="state"></CardList>
-        <AppLoader v-else></AppLoader>
-
-
-
-    </main>
-</template>
-
 <script>
+
 import { state } from '../state.js';
 import AppLoader from './AppLoader.vue';
 import CardList from './CardList.vue';
@@ -25,9 +15,12 @@ export default {
     },
     methods: {
 
-        searchArch() {
+        filterArch() {
             console.log(state.searchArch);
-            console.log('ciao');
+            //console.log(this.state.base_url);
+            const archUrl = 'https://db.ygoprodeck.com/api/v7/cardinfo.php?' + `&archetype=${state.searchArch}&` + 'num=1000&offset=0';
+            console.log(archUrl);
+            state.fetchData(archUrl);
         }
 
     },
@@ -38,16 +31,28 @@ export default {
 
         }, 2000), */
 
-        state.fetchData(),
+        state.fetchData(this.state.base_url),
 
             state.fetchArch()
 
 
     },
-    methods: {},
     components: { CardList, AppLoader, SearchArch }
 }
 </script>
+
+<template>
+    <main class="py-4">
+
+        <SearchArch @performSearch="filterArch"></SearchArch>
+
+        <CardList v-if="state"></CardList>
+        <AppLoader v-else></AppLoader>
+
+
+
+    </main>
+</template>
 
 <style lang="scss" scoped>
 @use '../src/assets/scss/partials/variables' as *;
