@@ -23,12 +23,26 @@ export default {
             state
         };
     },
+    methods: {
+
+        searchArch() {
+            console.log(state.searchArch);
+            console.log('ciao');
+        }
+
+    },
     created() {
-        setTimeout(() => {
+        /* setTimeout(() => {
 
             state.fetchData();
 
-        }, 2000)
+        }, 2000), */
+
+        state.fetchData(),
+
+            state.fetchArch()
+
+
     },
     methods: {},
     components: { CardList, AppLoader, SearchArch }
