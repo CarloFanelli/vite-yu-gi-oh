@@ -18,7 +18,7 @@ export default {
         filterArch() {
             console.log(state.searchArch);
             //console.log(this.state.base_url);
-            const archUrl = 'https://db.ygoprodeck.com/api/v7/cardinfo.php?' + `&archetype=${state.searchArch}&` + 'num=1000&offset=0';
+            const archUrl = 'https://db.ygoprodeck.com/api/v7/cardinfo.php?' + `archetype=${state.searchArch}&` + 'num=1000&offset=0';
             console.log(archUrl);
             state.fetchData(archUrl);
         }

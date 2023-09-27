@@ -20,10 +20,9 @@ export default {
             <option value="">select an arch</option>
             <option v-for="archetype in state.archetypes" :value="archetype.archetype_name">{{
                 archetype.archetype_name }}</option>
-            <!-- <option value="Noble Knight">Noble Knigh</option> -->
         </select>
         <div class="counter">
-            <p>sono stati trovati elementi</p>
+            <p>sono stati trovati {{ state.cards_counter }} elementi</p>
         </div>
     </div>
 </template>

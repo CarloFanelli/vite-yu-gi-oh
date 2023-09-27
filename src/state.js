@@ -5,6 +5,7 @@ export const state = reactive({
     selection: '',
     base_url: `https://db.ygoprodeck.com/api/v7/cardinfo.php?num=1000&offset=0`,
     cards: null,
+    cards_counter: '',
     arch_url: '',
     searchArch: '',
     archetypes: null,
@@ -14,17 +15,17 @@ export const state = reactive({
         //console.log(this.base_url);
         //console.log(this.selection);
 
-
-        axios(this.base_url)
+        axios(url)
             .then(response => {
                 //console.log(response.data);
                 //console.log('selezione', this.selection);
                 this.cards = response.data.data;
-
+                this.cards_counter = this.cards.length;
             })
             .catch(error => (
                 console.log('errore ', error)
             ));
+
     },
 
     fetchArch() {
